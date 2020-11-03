@@ -5,32 +5,33 @@ import {
 } from './actions'
 
 
-const initialState = {
-  isFetching: false,
-  error: false,
-  value: []
-}
 
-const reddit =  (state = initialState, { type, payload }) => {
+const reddit =  (state = {}, { type, payload, name }) => {
   switch (type) {
     case FETCH_REDDIT_REQUEST:
       return {
         ...state,
-        isFetching: true,
-        error: false,
+        [name]: {
+          isFetching: true,
+          error: false,
+        }
       }
     case FETCH_REDDIT_SUCCESS:
       return {
         ...state,
-        isFetching: false,
-        // value: state.value.concat(payload.data.children),
-        value: payload.data.children,
+        [name]: {
+          isFetching: false,
+          // value: state.value.concat(payload.data.children),
+          value: payload.data.children,
+        }
       }
     case FETCH_REDDIT_FAILURE:
       return {
         ...state,
-        isFetching: false,
-        error: payload,
+        [name]: {
+          isFetching: false,
+          error: payload,
+        }
       }
   default:
     return state

@@ -5,10 +5,11 @@ import { useParams } from 'react-router-dom'
 import { fetchRedditIfNeeded } from './actions'
 
 function RedditList() {
+  let { name } = useParams()
   const dispatch = useDispatch();
   const reddit = useSelector(state => state.reddit)
-  let { name } = useParams()
-  console.log('name', name)
+
+  const redditList = reddit[name] || { isFetching: true, value: []}
 
   useEffect(() => {
     dispatch(fetchRedditIfNeeded(name))
@@ -19,10 +20,11 @@ function RedditList() {
 
   return (
     <div>
-      {
-        reddit.value.map((value, i) => (
-          <p key={i}>{value.data.title}</p>
-        ))
+      { redditList.isFetching ? 
+          <p>loading</p> : 
+          redditList.value.map((value, i) => (
+            <p key={i}>{value.data.title}</p>
+          )) 
       }
     </div>
   )
