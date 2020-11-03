@@ -19,7 +19,7 @@ const fetchSubreddit = () => (
     dispatch({ type: FETCH_SUBREDDIT_REQUEST })
 
     try {
-      const res = await axios.get('`https://www.reddit.com/subreddits/default.json')
+      const res = await axios.get('https://www.reddit.com/subreddits/default.json')
       dispatch(fetchSubredditSuccess(res.data))
     } catch (error) {
       dispatch(fetchSubredditFailure(error))
@@ -28,8 +28,8 @@ const fetchSubreddit = () => (
 )
 
 const shouldFetchSubreddit = state => {
-  const subreddits = state.subreddits
-  if(!subreddits.isFetching) {
+  const subreddit = state.subreddit
+  if(!subreddit.isFetching) {
     return true
   }
 
