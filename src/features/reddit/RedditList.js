@@ -6,7 +6,6 @@ import { fetchRedditIfNeeded } from './actions'
 function RedditList() {
   const dispatch = useDispatch();
   const reddit = useSelector(state => state.reddit)
-  console.log('reddit', reddit)
 
   useEffect(() => {
     dispatch(fetchRedditIfNeeded())

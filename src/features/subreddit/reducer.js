@@ -7,7 +7,12 @@ import {
 const initialState = {
   isFetching: false,
   error: false,
-  value: []
+  value: [{
+    data: {
+      title: 'All',
+      display_name: 'all'
+    }
+  }]
 }
 
 const subreddit = (state = initialState, { type, payload }) => {

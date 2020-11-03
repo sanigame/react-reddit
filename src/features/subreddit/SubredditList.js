@@ -20,7 +20,7 @@ function SubredditList() {
     <List>
       {
         subreddit.value.map((value, index) => (
-          <SubredditItem text={value.data.title} key={index} />
+          <SubredditItem text={value.data.title} to={value.data.display_name} key={index} />
         ))
       }
     </List>

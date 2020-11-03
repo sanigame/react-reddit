@@ -5,13 +5,10 @@ import { Provider } from 'react-redux'
 import App from './App';
 import reportWebVitals from './reportWebVitals'
 import store from './configureStore'
-import { ResponsiveLayout } from './layout'
 
 ReactDOM.render(
   <Provider store={store}>
-    <ResponsiveLayout>
-      <App />
-    </ResponsiveLayout>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
