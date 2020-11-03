@@ -7,6 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -17,11 +18,11 @@ const useStyles = makeStyles({
   },
 });
 
-function MediaCard({title, detail}) {
+function MediaCard({title, detail, name}) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea component={Link} to={`/content/${name}`}>
         <CardMedia
           className={classes.media}
           image="https://variety.com/wp-content/uploads/2020/06/reddit-logo-1.png"

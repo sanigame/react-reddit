@@ -25,8 +25,7 @@ function RedditList() {
       { redditList.isFetching ? 
           <CircularProgress style={{ display: 'block', margin: 'auto' }} color="secondary" />  : 
           redditList.value.map((value, i) => (
-            // <p key={i}>{value.data.title}</p>
-            <MediaCard title={value.data.title} detail={value.data.subreddit} key={i} />
+            <MediaCard title={value.data.title} detail={value.data.subreddit} name={value.data.name} key={i} />
           )) 
       }
     </div>
