@@ -14,12 +14,12 @@ const fetchRedditSuccess = (payload) => ({
   payload,
 })
 
-const fetchReddit = () => (
+const fetchReddit = (name = 'all') => (
   async (dispatch) => {
     dispatch({ type: FETCH_REDDIT_REQUEST })
 
     try {
-      const res = await axios.get('https://www.reddit.com/r/all/hot.json')
+      const res = await axios.get(`https://www.reddit.com/r/${name}/hot.json`)
       dispatch(fetchRedditSuccess(res.data))
     } catch (error) {
       dispatch(fetchRedditFailure(error))
@@ -36,9 +36,9 @@ const shouldFetchReddit = state => {
   return false
 }
 
-export const fetchRedditIfNeeded = () => (dispatch, getState) => {
+export const fetchRedditIfNeeded = (name) => (dispatch, getState) => {
   if (shouldFetchReddit(getState())) {
-    return dispatch(fetchReddit())
+    return dispatch(fetchReddit(name))
   }
 
   return null

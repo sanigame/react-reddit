@@ -23,7 +23,8 @@ const reddit =  (state = initialState, { type, payload }) => {
       return {
         ...state,
         isFetching: false,
-        value: state.value.concat(payload.data.children),
+        // value: state.value.concat(payload.data.children),
+        value: payload.data.children,
       }
     case FETCH_REDDIT_FAILURE:
       return {

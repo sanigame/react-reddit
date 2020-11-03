@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import { fetchRedditIfNeeded } from './actions'
 
 function RedditList() {
   const dispatch = useDispatch();
   const reddit = useSelector(state => state.reddit)
+  let { name } = useParams()
+  console.log('name', name)
 
   useEffect(() => {
-    dispatch(fetchRedditIfNeeded())
+    dispatch(fetchRedditIfNeeded(name))
     return () => {
       console.log('Unmount')
     }
-  }, [dispatch])
+  }, [dispatch, name])
 
   return (
     <div>
