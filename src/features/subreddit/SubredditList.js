@@ -18,9 +18,11 @@ function SubredditList() {
 
   return (
     <List>
-      {subreddit.value.map((value, index) => (
-        <SubredditItem text={value.data.title} key={index} />
-      ))}
+      {
+        subreddit.value.map((value, index) => (
+          <SubredditItem text={value.data.title} key={index} />
+        ))
+      }
     </List>
   )
 }

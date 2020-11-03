@@ -1,8 +1,9 @@
 import { 
-  FETCH_SUBREDDIT_REQUEST,
-  FETCH_SUBREDDIT_SUCCESS,
-  FETCH_SUBREDDIT_FAILURE,
+  FETCH_REDDIT_REQUEST,
+  FETCH_REDDIT_SUCCESS,
+  FETCH_REDDIT_FAILURE,
 } from './actions'
+
 
 const initialState = {
   isFetching: false,
@@ -10,21 +11,21 @@ const initialState = {
   value: []
 }
 
-const subreddit = (state = initialState, { type, payload }) => {
+const reddit =  (state = initialState, { type, payload }) => {
   switch (type) {
-    case FETCH_SUBREDDIT_REQUEST:
+    case FETCH_REDDIT_REQUEST:
       return {
         ...state,
         isFetching: true,
         error: false,
       }
-    case FETCH_SUBREDDIT_SUCCESS:
+    case FETCH_REDDIT_SUCCESS:
       return {
         ...state,
         isFetching: false,
         value: state.value.concat(payload.data.children),
       }
-    case FETCH_SUBREDDIT_FAILURE:
+    case FETCH_REDDIT_FAILURE:
       return {
         ...state,
         isFetching: false,
@@ -35,4 +36,4 @@ const subreddit = (state = initialState, { type, payload }) => {
   }
 }
 
-export default subreddit
+export default reddit
