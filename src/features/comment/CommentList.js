@@ -24,7 +24,7 @@ function CommentList({ name, permalink }) {
         redditComment.isFetching ?
         <CircularProgress style={{ display: 'block', margin: 'auto' }} color="secondary" /> :
         redditComment.value.map(value=> (
-          <p key={value.data.id}>{value.data.body}</p>
+          <p key={value.data.id}>[{value.data.author}]: {value.data.body}</p>
         ))
       }
     </div>
