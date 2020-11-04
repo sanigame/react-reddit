@@ -85,7 +85,7 @@ function ResponsiveLayout(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Responsive drawer
+            React Reddit
           </Typography>
         </Toolbar>
       </AppBar>

@@ -5,6 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { fetchRedditDetailIfNeeded } from './actions'
 import MediaCard from '../../commons/MediaCard'
+import { CommentList } from '../comment'
 
 function ContentDetail({ name }) {
   const dispatch = useDispatch();
@@ -18,19 +19,23 @@ function ContentDetail({ name }) {
   }, [dispatch, name])
 
   const redditContent = content[name] || { isFetching: true }
-  // const detail = redditContent.value[0].data
-  // console.log('redditContent', redditContent)
 
   return (
     <div>
       {
         redditContent.isFetching ? 
           <CircularProgress style={{ display: 'block', margin: 'auto' }} color="secondary" /> : 
-          <MediaCard 
-            title={redditContent.value[0].data.title} 
-            detail={redditContent.value[0].data.subreddit} 
-            name={redditContent.value[0].data.name}
-          />
+          <div>
+            <MediaCard 
+              title={redditContent.value[0].data.title} 
+              detail={redditContent.value[0].data.subreddit} 
+              name={redditContent.value[0].data.name}
+            />
+            <CommentList 
+              name={redditContent.value[0].data.name}
+              permalink={redditContent.value[0].data.permalink} 
+            />
+          </div>
       }
     </div>
   )
