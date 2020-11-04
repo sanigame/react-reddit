@@ -27,6 +27,7 @@ function MediaCard({title, detail, name}) {
           className={classes.media}
           image="https://variety.com/wp-content/uploads/2020/06/reddit-logo-1.png"
           title={title}
+          id="image"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
