@@ -1,11 +1,13 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 
+import { ContentDetail } from '../features/content'
+
 function RedditDetail() {
   const { name } = useParams()
   return (
     <div>
-      detail {name}
+      <ContentDetail name={name} />
     </div>
   )
 }

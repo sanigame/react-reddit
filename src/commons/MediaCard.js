@@ -22,7 +22,7 @@ function MediaCard({title, detail, name}) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
-      <CardActionArea component={Link} to={`/content/${name}`}>
+      <CardActionArea component={Link} to={`/detail/${name}`}>
         <CardMedia
           className={classes.media}
           image="https://variety.com/wp-content/uploads/2020/06/reddit-logo-1.png"
