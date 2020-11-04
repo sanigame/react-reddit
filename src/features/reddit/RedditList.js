@@ -7,7 +7,7 @@ import { fetchRedditIfNeeded } from './actions'
 import MediaCard from '../../commons/MediaCard'
 
 function RedditList() {
-  let { name } = useParams()
+  let { name = 'all' } = useParams()
   const dispatch = useDispatch();
   const reddit = useSelector(state => state.reddit)
 
