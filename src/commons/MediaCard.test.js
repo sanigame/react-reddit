@@ -13,7 +13,6 @@ describe('<MediaCard />', () => {
   it('should render Card component', () => {
     expect(wrapper.find(Card)).toHaveLength(1)
   })
-  
   it('should render CardActionArea component', () => {
     expect(wrapper.find(CardActionArea)).toHaveLength(1)
   })

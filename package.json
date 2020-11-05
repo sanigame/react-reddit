@@ -30,6 +30,11 @@
   "jest": {
     "setupFiles": [
       "<rootDir>jest.setup.js"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
     ]
   },
   "eslintConfig": {

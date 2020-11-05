@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 function SubredditItem({ text, to }) {
   return (
     <ListItem button component={Link} to={`/subreddit/${to}`}>
-      <ListItemIcon><InboxIcon /></ListItemIcon>
+      <ListItemIcon id="nav-icon"><InboxIcon /></ListItemIcon>
       <ListItemText primary={text} />
     </ListItem>
   )
